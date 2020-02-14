@@ -98,13 +98,25 @@ def learn_model(data):
     probability['p_spam'] = p_spam
     probability['p_ham'] = p_ham
 
-    # P(x_i|c) = count(x_i, c) / (\sum_j count(x_j, c))
+    # P(x_i|c) = (count(x_i, c) + 1) / (\sum_j count(x_j, c) + V)
+    # using add-one smoothing
+    vocabulary = set(spam.keys()) & set(ham.keys())
+    v_size = len(vocabulary)
     sum_spam = sum(spam.values())
     sum_ham = sum(ham.values())
-    for token, num in spam.items():
-        probability['p_' + token + '_spam'] = num / sum_spam
-    for token, num in ham.items():
-        probability['p_' + token + '_ham'] = num / sum_ham
+    for token in vocabulary:
+        if token not in spam.keys():
+            probability['p_' + token + '_spam'] = 1 / (sum_spam + v_size)
+        else:
+            probability['p_' + token + '_spam'] = (spam[token] + 1) / (sum_spam + v_size)
+        if token not in ham.keys():
+            probability['p_' + token + '_ham'] = 1 / (sum_ham + v_size)
+        else:
+            probability['p_' + token + '_ham'] = (ham[token] + 1) / (sum_ham + v_size)
+    # for token, num in spam.items():
+    #     probability['p_' + token + '_spam'] = num / sum_spam
+    # for token, num in ham.items():
+    #     probability['p_' + token + '_ham'] = num / sum_ham
 
     return probability
 
