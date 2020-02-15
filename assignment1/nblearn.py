@@ -22,7 +22,7 @@ def files2dict(files, dict):
         f.close()
 
 
-def read_data(dir):
+def read_data(dir='./Spam or Ham/train'):
     """
     Load the train data. The directory is like
     --train
@@ -51,16 +51,19 @@ def read_data(dir):
     ham = {}
     spam = {}
     # get the relative path without the hidden files
-    folders = [dir + '/' + i for i in os.listdir(dir) if not i.startswith('.')]
+    # folders = ['./Spam or Ham/train/1']
+    folders = [dir + os.sep + i for i in os.listdir(dir) if not i.startswith('.')]
     for folder in folders:
         # read ham files
+        # ham_dir = './Spam or Ham/train/1/ham'
         ham_dir = folder + '/ham'
-        ham_files = [ham_dir + '/' + i for i in os.listdir(ham_dir) if not i.startswith('.')]
+        # ham_files = ['./Spam or Ham/train/1/ham/0001.1999-12-10.farmer.ham.txt']
+        ham_files = [ham_dir + os.sep + i for i in os.listdir(ham_dir) if not i.startswith('.')]
         num_ham += len(ham_files)
         files2dict(ham_files, ham)
         # read spam files
         spam_dir = folder + '/spam'
-        spam_files = [spam_dir + '/' + i for i in os.listdir(spam_dir) if not i.startswith('.')]
+        spam_files = [spam_dir + os.sep + i for i in os.listdir(spam_dir) if not i.startswith('.')]
         num_spam += len(spam_files)
         files2dict(spam_files, spam)
     parameters = {'num_ham': num_ham,
