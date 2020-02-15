@@ -1,14 +1,14 @@
 Assignment 1 Report
 
-Name:
+Name: Zheyu Shen
 
 1. Performance on the development data with 100% of the training data
-1a. spam precision:
-1b. spam recall: 
-1c. spam F1 score: 
-1d. ham precision:
-1e. ham recall: 
-1f. ham F1 score:
+1a. spam precision: 0.9883236030025021
+1b. spam recall: 0.9673469387755103
+1c. spam F1 score: 0.9777227722772278
+1d. ham precision: 0.9239543726235742
+1e. ham recall: 0.972
+1f. ham F1 score: 0.9473684210526315
 
 2. Performance on the development data with 10% of the training data
 2a. spam precision:
