@@ -31,7 +31,7 @@ def write_output(labels):
     """
     with open('./nboutput.txt', 'w', encoding='latin1') as f:
         for path, label in labels.items():
-            f.write(label + ' ' + path + '\n')
+            f.write(label + '\t' + path + '\n')
 
 
 def predict(parameter, datas):
