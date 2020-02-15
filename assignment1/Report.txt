@@ -1,0 +1,29 @@
+Assignment 1 Report
+
+Name:
+
+1. Performance on the development data with 100% of the training data
+1a. spam precision:
+1b. spam recall: 
+1c. spam F1 score: 
+1d. ham precision:
+1e. ham recall: 
+1f. ham F1 score:
+
+2. Performance on the development data with 10% of the training data
+2a. spam precision:
+2b. spam recall: 
+2c. spam F1 score: 
+2d. ham precision:
+2e. ham recall: 
+2f. ham F1 score:
+
+3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
+
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+4a. spam precision:
+4b. spam recall: 
+4c. spam F1 score: 
+4d. ham precision:
+4e. ham recall: 
+4f. ham F1 score:
