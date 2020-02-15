@@ -11,12 +11,12 @@ Name: Zheyu Shen
 1f. ham F1 score: 0.9473684210526315
 
 2. Performance on the development data with 10% of the training data
-2a. spam precision:
-2b. spam recall: 
-2c. spam F1 score: 
-2d. ham precision:
-2e. ham recall: 
-2f. ham F1 score:
+2a. spam precision: 0.9843795198148684
+2b. spam recall: 0.9259863945578232
+2c. spam F1 score: 0.9542905215928211
+2d. ham precision: 0.8416763678696159
+2e. ham recall: 0.964
+2f. ham F1 score: 0.8986948415164699
 
 3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
 
