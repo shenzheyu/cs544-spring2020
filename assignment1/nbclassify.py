@@ -1,6 +1,8 @@
 import json
 import sys
 import os
+import random
+import math
 
 
 def file2data(file_path):
@@ -48,17 +50,22 @@ def predict(parameter, datas):
     """
     labels = {}
     for path, data in datas.items():
-        p_spam_data = parameter['p_spam']
-        p_ham_data = parameter['p_ham']
+        p_spam_data = math.log(parameter['p_spam'])
+        p_ham_data = math.log(parameter['p_ham'])
         for token in data.keys():
             if 'p_' + token + '_spam' in parameter.keys():
-                p_spam_data *= parameter['p_' + token + '_spam'] ** data[token]
+                p_spam_data += math.log(parameter['p_' + token + '_spam']) * data[token]
             if 'p_' + token + '_ham' in parameter.keys():
-                p_ham_data *= parameter['p_' + token + '_ham'] ** data[token]
-        if p_ham_data >= p_spam_data:
+                p_ham_data += math.log(parameter['p_' + token + '_ham']) * data[token]
+        if p_ham_data > p_spam_data:
             labels[path] = 'ham'
-        else:
+        elif p_ham_data < p_spam_data:
             labels[path] = 'spam'
+        else:
+            if random.random() > 0.5:
+                labels[path] = 'ham'
+            else:
+                labels[path] = 'spam'
     return labels
 
 
