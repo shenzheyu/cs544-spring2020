@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import random
 
 
 def files2dict(files, dict):
@@ -22,7 +23,7 @@ def files2dict(files, dict):
         f.close()
 
 
-def read_data(dir='./Spam or Ham/train'):
+def read_data(dir='./Spam or Ham/train', portion=1):
     """
     Load the train data. The directory is like
     --train
@@ -59,11 +60,13 @@ def read_data(dir='./Spam or Ham/train'):
         ham_dir = folder + '/ham'
         # ham_files = ['./Spam or Ham/train/1/ham/0001.1999-12-10.farmer.ham.txt']
         ham_files = [ham_dir + os.sep + i for i in os.listdir(ham_dir) if not i.startswith('.')]
+        ham_files = random.sample(ham_files, int(portion * len(ham_files)))
         num_ham += len(ham_files)
         files2dict(ham_files, ham)
         # read spam files
         spam_dir = folder + '/spam'
         spam_files = [spam_dir + os.sep + i for i in os.listdir(spam_dir) if not i.startswith('.')]
+        spam_files = random.sample(spam_files, int(portion * len(spam_files)))
         num_spam += len(spam_files)
         files2dict(spam_files, spam)
     parameters = {'num_ham': num_ham,
@@ -146,7 +149,7 @@ def main():
         return
     input_dir = sys.argv[1]
     # input_dir = './Spam or Ham/train'
-    train_data = read_data(input_dir)
+    train_data = read_data(input_dir, 1)
     probability = learn_model(train_data)
     store_model(probability)
 
