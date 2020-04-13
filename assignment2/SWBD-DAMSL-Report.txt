@@ -1,0 +1,15 @@
+Assignment 2 Report
+
+Name: Zheyu Shen
+
+1. Describe how you evaluated your baseline and advanced features:
+Moving ~25% (0001.csv to 0269.csv) data into a separate development directory.
+
+2. Accuracy of baseline features during your evaluation:
+0.7138
+
+3. Describe your advanced feature set:
+
+4. If you tried and rejected alternate advanced feature sets, please describe them:
+
+5. Accuracy of advanced features was:
