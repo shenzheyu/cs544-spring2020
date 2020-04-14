@@ -1,6 +1,5 @@
 import sys
 import pycrfsuite
-import random
 
 from hw2_corpus_tool import get_data
 
@@ -107,8 +106,9 @@ def main():
     y_pred = crf_predict(X_test)
     print_tagger(y_pred, output_file)
 
-    crf_evaluate(y_pred, y_test)
+    # crf_evaluate(y_pred, y_test)
 
 
 if __name__ == '__main__':
     main()
+

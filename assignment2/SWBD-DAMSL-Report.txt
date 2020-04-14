@@ -9,7 +9,20 @@ Moving ~25% (0001.csv to 0269.csv) data into a separate development directory.
 0.7138
 
 3. Describe your advanced feature set:
+A feature for whether or not the speaker has changed in comparison with the previous utterance.
+A feature for word vector of every token in the utterance (use Glove_6B_50d model).
+A feature marking the first utterance of the dialogue.
+A feature for every token in the utterance.
+A feature for every part of speech tag in the utterance.
+A feature for length of text in the utterance.
 
 4. If you tried and rejected alternate advanced feature sets, please describe them:
+A feature for whether the utterance ends in question mark.
+A feature for every token and part of speech tag for the previous utterance.
+A feature for complete text in the utterance.
+A feature for whether the utterance contains 'I think', 'I believe', 'it seems' or 'I mean'.
+A feature for every token except stopwords in the utterance.
+A feature for whether the previous utterance ends in question mark.
 
 5. Accuracy of advanced features was:
+0.7219
